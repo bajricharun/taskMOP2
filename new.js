@@ -1,0 +1,6 @@
+const jwt = require("jsonwebtoken");
+
+process.env.SECRET_KEY = '1280f07cd273b0c2c6d8c072308e9e91af6407bfbfb518f7a598e3a6c7f581fb'
+var token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZmlyc3RfbmFtZSI6ImhhcnVuIiwibGFzdF9uYW1lIjoiYmFqcmljIiwiZW1haWwiOiJoYXJ1bkBnbWFpbC5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCRaMEZvbDdLajVGc09oanNEc1ZJTHFPSWc1UHREZ1RxbTVxZzVnUFZJYXVMSExyci9xaTlBZSIsImlhdCI6MTYyMzYxNDkzMywiZXhwIjoxNjIzNjk5NTMzfQ.7DJ_yoniqMsHA6354zbB-c0RqztTLlhK-YfnOScbH8M";
+var decoded = jwt.verify(token, process.env.SECRET_KEY)
+console.log(decoded['id']);
