@@ -4,7 +4,7 @@ const jwt = require("jsonwebtoken");
 
 var bodyParser = require("body-parser");
 var app = express();
-var port = process.env.PORT || 5000
+var port = process.env.PORT || 8000
 process.env.SECRET_KEY = '1280f07cd273b0c2c6d8c072308e9e91af6407bfbfb518f7a598e3a6c7f581fb'
 
 app.use(bodyParser.json())

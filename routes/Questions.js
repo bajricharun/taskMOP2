@@ -100,6 +100,36 @@ questions.get("/:id", (req,res) => {
     })
 });
 
+questions.get('/edit', (req,res) => {
+    Question.findOne({
+        where: {
+            id: req.body.id
+        }
+    }).then(question=> {
+        const questionTitle = '';
+        const questionText = '';
+        if (req.body.questionTitle == '') {
+            questionTitle = question.questionTitle;
+        } else {
+            questionTitle = req.body.questionTitle;
+
+        }
+        if (req.body.questionText == '') {
+            questionText = question.questionText;
+        } else {
+            questionText = req.body.questionText;
+        }
+        const postData = {
+            questionTitle: questionTitle,
+            questionText: questionText
+        }
+        question.update(postData)
+    }).catch(err => {
+        console.log(err)
+    })
+    
+})
+
 questions.post('addComment', (req, res) => {
 
     var decoded = jwt.verify(token, process.env.SECRET_KEY);
